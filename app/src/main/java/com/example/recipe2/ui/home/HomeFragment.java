@@ -79,6 +79,7 @@ public class HomeFragment extends Fragment {
                     for(Categories category:categories){
                         mCategory.add(category.getStrCategory());
                         mThumbnail.add(category.getStrCategoryThumb());
+                        mDetails.add(category.getStrCategoryDescription());
                     }
                     initRecyclerView();
                     /*details.replace("[1]","\n");

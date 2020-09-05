@@ -4,59 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/e1a2d63e996efd3839c7e6ba2497aaca"
+    android:background="@drawable/e2d63e996efd3839c7e6ba2497aaca"
     tools:context=".ui.home.HomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <EditText
+                style="@style/TextAppearance.AppCompat.Large"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Any dish in mind?"
                 android:layout_weight="1"
-                android:padding="15dp"
                 android:fontFamily="@font/nothing_you_could_do"
-                style="@style/TextAppearance.AppCompat.Large">
-            </EditText>
+                android:hint="Any dish in mind?"
+                android:padding="15dp"></EditText>
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:padding="15dp"
                 android:adjustViewBounds="true"
                 android:background="#00FFFFFF"
+                android:padding="15dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/search_icon">
 
             </ImageButton>
 
         </LinearLayout>
+
         <TextView
+            android:id="@+id/text_home"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/text_home">
+            android:layout_height="wrap_content">
 
         </TextView>
 
 
-
-
-
         <TextView
+            style="@style/TextAppearance.AppCompat.Display1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/luckiest_guy"
-            android:text="Categories:"
             android:paddingLeft="15dp"
-            style="@style/TextAppearance.AppCompat.Display1">
+            android:text="Categories:">
 
         </TextView>
 
