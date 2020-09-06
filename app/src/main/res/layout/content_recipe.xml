@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/walll1"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ui.home.Recipe"
+    tools:showIn="@layout/activity_recipe">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/recipename"
+            style="@style/TextAppearance.AppCompat.Display2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/luckiest_guy"
+            android:padding="15dp"
+            android:text="RECIPE NAME"
+            android:textAlignment="center">
+
+        </TextView>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rock_salt"
+            android:padding="15dp"
+
+            android:text="Ingredients!">
+
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/ingri_1"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:textStyle="bold"
+                    android:text="sdfsdf" />
+
+                <TextView
+                    android:id="@+id/ingri_2"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+                <TextView
+                    android:id="@+id/ingri_3"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+                <TextView
+                    android:id="@+id/ingri_4"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+                <TextView
+                    android:id="@+id/ingri_5"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+                <TextView
+                    android:id="@+id/ingri_6"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+                <TextView
+                    android:id="@+id/ingri_7"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+                <TextView
+                    android:id="@+id/ingri_8"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+                <TextView
+                    android:id="@+id/ingri_9"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+                <TextView
+                    android:id="@+id/ingri_10"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ingri_11"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+                <TextView
+                    android:id="@+id/ingri_12"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+                <TextView
+                    android:id="@+id/ingri_13"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+                <TextView
+                    android:id="@+id/ingri_14"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+                <TextView
+                    android:id="@+id/ingri_15"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+                <TextView
+                    android:id="@+id/ingri_16"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+                <TextView
+                    android:id="@+id/ingri_17"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+                <TextView
+                    android:id="@+id/ingri_18"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+                <TextView
+                    android:id="@+id/ingri_19"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+                <TextView
+                    android:id="@+id/ingri_20"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nothing_you_could_do"
+                    android:padding="5dp"
+                    android:text="sdfsdf" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rock_salt"
+            android:padding="15dp"
+            android:text="Category :">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/category"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nothing_you_could_do"
+            android:padding="15dp"
+            android:text="">
+
+        </TextView>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rock_salt"
+            android:padding="15dp"
+            android:text="Area">
+
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/area"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nothing_you_could_do"
+            android:padding="15dp"
+            android:text="">
+
+        </TextView>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rock_salt"
+            android:padding="15dp"
+            android:text="Drink Alternate">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/drinkAlternate"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nothing_you_could_do"
+            android:padding="15dp"
+            android:text="">
+
+        </TextView>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rock_salt"
+            android:padding="15dp"
+            android:text="How to do it!">
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/procedure"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/recycleview2"
+            android:fontFamily="@font/nothing_you_could_do"
+            android:padding="15dp"
+            android:text=""
+            android:textColor="#000000">
+
+        </TextView>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rock_salt"
+            android:padding="15dp"
+            android:text="Finished product!">
+
+        </TextView>
+
+        <ImageView
+            android:id="@+id/finished"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </ImageView>
+
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

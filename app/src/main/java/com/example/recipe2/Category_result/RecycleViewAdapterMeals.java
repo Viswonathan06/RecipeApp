@@ -1,6 +1,7 @@
 package com.example.recipe2.Category_result;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,15 +17,25 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.recipe2.R;
+import com.example.recipe2.Recipe.Meals_Recipe;
+import com.example.recipe2.Recipe.Recipe_Root;
 import com.example.recipe2.Retrofit.JsonPlaceHolderApi;
+import com.example.recipe2.ui.home.Recipe;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RecycleViewAdapterMeals extends RecyclerView.Adapter<RecycleViewAdapterMeals.ViewHolder> {
     private static final String TAG = "RecycleViewAdapter";
     private ArrayList<String> nTitles = new ArrayList<>();
     private ArrayList<String> nThumbnails = new ArrayList<>();
     Context context;
+    JsonPlaceHolderApi jsonPlaceHolderApi;
 
     public RecycleViewAdapterMeals( Context context, ArrayList<String> nTitles, ArrayList<String> nThumbnails) {
         this.nTitles = nTitles;
@@ -43,8 +54,8 @@ public class RecycleViewAdapterMeals extends RecyclerView.Adapter<RecycleViewAda
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: ");
-
         holder.title.setText(nTitles.get(position));
+        String searchphp="search.php";
         Glide.with(context)
                 .load(nThumbnails.get(position))
                 .apply(new RequestOptions().override(400,400))
@@ -52,6 +63,16 @@ public class RecycleViewAdapterMeals extends RecyclerView.Adapter<RecycleViewAda
                 .apply(new RequestOptions()
                         .diskCacheStrategy(DiskCacheStrategy.ALL))
                 .into(holder.imageView);
+        holder.parentlayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, Recipe.class);
+                intent.putExtra("Recipe name",nTitles.get(position));
+                intent.putExtra("Recipe thumbnail",nThumbnails.get(position));
+                context.startActivity(intent);
+
+            }
+        });
 
 
     }

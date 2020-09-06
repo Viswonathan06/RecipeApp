@@ -40,13 +40,13 @@
                 style="@style/TextAppearance.AppCompat.Medium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
+                android:fontFamily="@font/rock_salt"
                 android:padding="15dp"
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:paddingBottom="30dp"
                 android:text="TITLE"
-                android:textColor="#00C4FF">
+                android:textColor="@android:color/white">
 
 
             </TextView>

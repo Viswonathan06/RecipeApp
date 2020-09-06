@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/e2d63e996efd3839c7e6ba2497aaca"
+    android:background="@drawable/dodofooof"
     tools:context=".ui.home.HomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,14 +23,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:id="@+id/SearchBox"
                 android:fontFamily="@font/nothing_you_could_do"
                 android:hint="Any dish in mind?"
-                android:padding="15dp"></EditText>
+                android:padding="15dp"
+                android:textColor="@android:color/white"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"
+                android:textColorHint="@android:color/white"
+                android:gravity="center_horizontal">
+
+            </EditText>
 
             <ImageButton
+                android:id="@+id/search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
+                android:layout_marginTop="10dp"
                 android:adjustViewBounds="true"
                 android:background="#00FFFFFF"
                 android:padding="15dp"
@@ -39,6 +51,43 @@
             </ImageButton>
 
         </LinearLayout>
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:layout_gravity="center"
+            android:visibility="gone">
+
+        </ProgressBar>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:id="@+id/error"
+            android:fontFamily="@font/rock_salt"
+            android:text="Sorry! We couldn't find any specific dish as searched! \n \nExplore our home for categories! You may find your dish there! \n \n Press sad icecream to go back"
+            android:textColor="@android:color/white"
+            android:background="@drawable/recycle_curved"
+            android:visibility="gone">
+
+        </TextView>
+
+        <ImageButton
+            android:id="@+id/sadIce"
+            android:layout_width="131dp"
+            android:background="@android:color/transparent"
+            android:layout_height="229dp"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            tools:srcCompat="@drawable/sad_strawberry_ice_cream">
+
+        </ImageButton>
 
         <TextView
             android:id="@+id/text_home"
@@ -49,18 +98,22 @@
 
 
         <TextView
+            android:id="@+id/category_text"
             style="@style/TextAppearance.AppCompat.Display1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
             android:fontFamily="@font/luckiest_guy"
             android:paddingLeft="15dp"
-            android:text="Categories:">
+            android:text="Categories:"
+            android:textColor="@android:color/white">
 
         </TextView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/RecyclerView"
             android:layout_width="match_parent"
+            android:layout_marginLeft="15dp"
             android:layout_height="match_parent">
 
         </androidx.recyclerview.widget.RecyclerView>

@@ -56,7 +56,7 @@ public class CategoryFoodList extends AppCompatActivity {
         RecyclerView recyclerView=findViewById(R.id.RecyclerViewFood);
         RecycleViewAdapterMeals adapter=new RecycleViewAdapterMeals(this,nCategory,nThumbnail);
         recyclerView.setAdapter(adapter);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(mLayoutManager);
 
         //

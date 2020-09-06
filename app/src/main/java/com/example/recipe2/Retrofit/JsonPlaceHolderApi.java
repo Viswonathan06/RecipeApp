@@ -2,9 +2,11 @@ package com.example.recipe2.Retrofit;
 
 import com.example.recipe2.Categories.Root;
 import com.example.recipe2.Category_result.Meals_Root;
+import com.example.recipe2.Recipe.Recipe_Root;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface JsonPlaceHolderApi {
@@ -15,5 +17,8 @@ public interface JsonPlaceHolderApi {
     //?c=Seafood
     @GET("filter.php")
     Call<Meals_Root> getData(@Query("c") String category);
+
+    @GET("search.php")
+    Call<Recipe_Root> getRecipe(@Query("s") String mean_name);
 }
 
