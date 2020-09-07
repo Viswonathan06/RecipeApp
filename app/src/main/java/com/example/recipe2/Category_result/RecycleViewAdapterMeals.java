@@ -55,7 +55,6 @@ public class RecycleViewAdapterMeals extends RecyclerView.Adapter<RecycleViewAda
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: ");
         holder.title.setText(nTitles.get(position));
-        String searchphp="search.php";
         Glide.with(context)
                 .load(nThumbnails.get(position))
                 .apply(new RequestOptions().override(400,400))
