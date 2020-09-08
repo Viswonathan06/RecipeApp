@@ -24,6 +24,9 @@ import android.widget.Toast;
 
 import com.example.recipe2.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,10 +40,16 @@ public class Recipe extends AppCompatActivity {
     TextView ingri_1,ingri_2,ingri_3,ingri_4,ingri_5,ingri_6,ingri_7,ingri_8,ingri_9,ingri_10,ingri_11,ingri_12,ingri_13,ingri_14,ingri_15,ingri_16,ingri_17,ingri_18,ingri_19,ingri_20;
     String ingridient_1,ingridient_2,ingridient_3,ingridient_4,ingridient_5,ingridient_6,ingridient_7,ingridient_8,ingridient_9,ingridient_10,ingridient_11,ingridient_12,ingridient_13,ingridient_14,ingridient_15,ingridient_16,ingridient_17,ingridient_18,ingridient_19,ingridient_20;
 
+    ArrayList<String> nCategory = new ArrayList<>();
+    ArrayList<String> nDetails = new ArrayList<>();
+    ArrayList<String> nThumbnail = new ArrayList<>();
+
     TextView Description;
     String thumbnail,title;
     ImageView finished;
-    int clicked=0;
+    int clicked=0,id;
+
+    FavouriteModel favouriteModelDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +61,22 @@ public class Recipe extends AppCompatActivity {
         title=getIntent().getStringExtra("Recipe name");
         thumbnail=getIntent().getStringExtra("Recipe thumbnail");
         getSupportActionBar().setTitle(title);
-
-
-
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(this);
+        List<FavouriteModel> favs = dataBaseHelper.getRecipes();
+//        for (FavouriteModel fav:favs) {
+//            if (fav.getRecipe_name()==title){
+//                Toast.makeText(this, "This is in favs!", Toast.LENGTH_SHORT).show();
+//                clicked=1;
+//            }
+//            nCategory.add(fav.getRecipe_name());
+//            nThumbnail.add(fav.getRecipe_thumb());
+//        }
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+
+
+
+
         Title=findViewById(R.id.recipename);
         Description=findViewById(R.id.procedure);
         DrinkAlternate=findViewById(R.id.drinkAlternate);
@@ -91,7 +112,7 @@ public class Recipe extends AppCompatActivity {
                                  Description.setText(root.getMeals().get(0).getStrInstructions());
                                  Category.setText(root.getMeals().get(0).getStrCategory());
                                  Area.setText(root.getMeals().get(0).getStrArea());
-                                 Glide.with(Recipe.this)
+                                 Glide.with(getApplicationContext())
                                          .load(root.getMeals().get(0).getStrMealThumb())
                                          .apply(new RequestOptions().override(700,700))
                                          .apply(new RequestOptions().circleCrop())
@@ -140,6 +161,26 @@ public class Recipe extends AppCompatActivity {
                                  ingridient_19 = root.getMeals().get(0).getStrIngredient20() + " - " + root.getMeals().get(0).getStrMeasure20();
                                  ingri_20.setText(ingridient_19);
 
+
+
+                                 for (int i=0;i<favs.size();i++) {
+
+                                     if (favs.get(i).getRecipe_name().compareTo(root.getMeals().get(0).getStrMeal())==0){
+                                         Toast.makeText(Recipe.this, "This is in favs!", Toast.LENGTH_SHORT).show();
+                                         clicked=1;
+                                         id=favs.get(i).getId();
+                                         favouriteModelDelete=favs.get(i);
+
+                                     }
+                                 }
+                                 if(clicked==1){
+                                     fab.setImageDrawable(getResources().getDrawable(R.drawable.heart__1_));
+                                 }else
+                                     fab.setImageDrawable(getResources().getDrawable(R.drawable.heart));
+
+
+
+
                                  fab.setOnClickListener(new View.OnClickListener() {
                                      @Override
                                      public void onClick(View view) {
@@ -147,14 +188,20 @@ public class Recipe extends AppCompatActivity {
                                              Snackbar.make(view, "removed from favourites", Snackbar.LENGTH_LONG)
                                                      .setAction("Action", null).show();
                                              fab.setImageDrawable(getResources().getDrawable(R.drawable.heart));
+
+                                             boolean removeone=dataBaseHelper.deleteOne(favouriteModelDelete);
+                                             Toast.makeText(Recipe.this, "Removed "+removeone, Toast.LENGTH_SHORT).show();
+
+
                                              clicked=0;
                                          }else {
                                              clicked=1;
                                              Snackbar.make(view, "Added to favourites!", Snackbar.LENGTH_LONG)
                                                      .setAction("Action", null).show();
-                                             DataBaseHelper dataBaseHelper=new DataBaseHelper(Recipe.this);
                                              FavouriteModel favouriteModel=new FavouriteModel(-1,root.getMeals().get(0).getStrMeal(), root.getMeals().get(0).getStrMealThumb(),clicked);
+
                                              boolean addone = dataBaseHelper.addone(favouriteModel);
+
                                              Toast.makeText(Recipe.this, "Success"+addone, Toast.LENGTH_SHORT).show();
                                              fab.setImageDrawable(getResources().getDrawable(R.drawable.heart__1_));
                                          }
@@ -168,41 +215,10 @@ public class Recipe extends AppCompatActivity {
 
                          @Override
                          public void onFailure(Call<Recipe_Root> call, Throwable t) {
+                             Title.setText("Code :" + t.getMessage());
 
                          }
         });
 
-
-//        holder.parentlayout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//            Callback<Recipe_Root>() {
-//                    @Override
-//                    public void onResponse(Call<Recipe_Root> call, Response<Recipe_Root> response) {
-//                        if (!response.isSuccessful()) {
-//                            // ingridient_View.setText("Code :" + response.code());
-//                            holder.title.setText("Code:"+response.code());
-//                            return;
-//                        }
-//                        else {
-//                            Recipe_Root root=response.body();
-//                            Meals_Recipe recipe=root.getMeals().get(0);
-//
-//
-//                        }
-//
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<Recipe_Root> call, Throwable t) {
-//                        holder.title.setText("Code:"+t.getMessage());
-//
-//                    }
-//                });
-//            }
-//        });
-
-
-                
     }
 }

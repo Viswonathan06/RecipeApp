@@ -88,7 +88,8 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                             return;
                         }
                         else {
-
+                            nCategory.clear();
+                            nThumbnail.clear();
 
                             Meals_Root meals_root = response.body();
                             Intent intent= new Intent(mContext, CategoryFoodList.class);

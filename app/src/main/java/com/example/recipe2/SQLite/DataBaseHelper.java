@@ -76,4 +76,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         dp.close();
         return returnList;
     }
+
+    public boolean deleteOne(FavouriteModel favouriteModel){
+        SQLiteDatabase db=this.getWritableDatabase();
+        String queryString="DELETE FROM " + FAVOURITES_TABLE + " WHERE " + ID+ " = "+ favouriteModel.getId();
+        Cursor cursor = db.rawQuery(queryString, null);
+        if(cursor.moveToFirst()){
+            return true;
+        }
+        else
+            return false;
+    }
 }
