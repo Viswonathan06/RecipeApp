@@ -66,7 +66,7 @@ public class HomeFragment extends Fragment {
     ArrayList<String> mCategory = new ArrayList<>();
     ArrayList<String> mDetails = new ArrayList<>();
     ArrayList<String> mThumbnail = new ArrayList<>();
-    ArrayList<String> mAreaThumbnails=new ArrayList<>();
+    ArrayList<Integer> mAreaThumbnails=new ArrayList<>();
     ArrayList<String> mAreaMeals = new ArrayList<>();
 
 
@@ -94,6 +94,38 @@ public class HomeFragment extends Fragment {
         recyclerView = root.findViewById(R.id.RecyclerView);
         AreaRecycler=root.findViewById(R.id.AreaRecycler);
         loading=root.findViewById(R.id.loading);
+
+
+        //adding flags to array!
+        mAreaThumbnails.add(R.drawable.us_flag);
+        mAreaThumbnails.add(R.drawable.uk_flag);
+        mAreaThumbnails.add(R.drawable.ca_flag);
+        mAreaThumbnails.add(R.drawable.tn_ch_flag);
+        mAreaThumbnails.add(R.drawable.nl_flag);
+        mAreaThumbnails.add(R.drawable.eg_flag);
+        mAreaThumbnails.add(R.drawable.fr_flag);
+        mAreaThumbnails.add(R.drawable.gr_flag);
+        mAreaThumbnails.add(R.drawable.in_flag);
+        mAreaThumbnails.add(R.drawable.ei_flag);
+        mAreaThumbnails.add(R.drawable.it_flag);
+        mAreaThumbnails.add(R.drawable.jm_flag);
+        mAreaThumbnails.add(R.drawable.ja_flag);
+        mAreaThumbnails.add(R.drawable.ke_flag);
+        mAreaThumbnails.add(R.drawable.my_flag);
+        mAreaThumbnails.add(R.drawable.mx_flag);
+        mAreaThumbnails.add(R.drawable.mo_flag);
+        mAreaThumbnails.add(R.drawable.pl_flag);
+        mAreaThumbnails.add(R.drawable.rs_flag);
+        mAreaThumbnails.add(R.drawable.sp_flag);
+        mAreaThumbnails.add(R.drawable.th_flag);
+        mAreaThumbnails.add(R.drawable.ts_flag);
+        mAreaThumbnails.add(R.drawable.tu_flag);
+        mAreaThumbnails.add(R.drawable.un_flag);
+        mAreaThumbnails.add(R.drawable.vm_flag);
+
+
+
+
 
         error.setVisibility(View.GONE);
         sadIce.setVisibility(View.GONE);

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fooood"
+    android:background="@drawable/blaccck"
     tools:context=".ui.home.HomeFragment">
 
     <LinearLayout
@@ -88,7 +88,7 @@
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
             android:visibility="gone"
-            tools:srcCompat="@drawable/sad_strawberry_ice_cream">
+            android:src="@drawable/sad_strawberry_ice_cream">
 
         </ImageButton>
 
@@ -105,22 +105,25 @@
             style="@style/TextAppearance.AppCompat.Display1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_margin="15dp"
+
             android:fontFamily="@font/luckiest_guy"
             android:paddingLeft="15dp"
             android:text="Categories:"
             android:textColor="@android:color/white">
 
         </TextView>
+
         <TextView
             android:id="@+id/faf"
+            android:layout_margin="15dp"
+
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/recycle_curved"
             android:fontFamily="@font/nothing_you_could_do"
             android:padding="15dp"
-            android:background="@drawable/recycle_curved"
             android:text="Here are a few categories to get you started!"
             android:textColor="@android:color/white">
 
@@ -130,43 +133,47 @@
             android:id="@+id/RecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15dp">
+            android:layout_margin="15dp"
+            >
 
         </androidx.recyclerview.widget.RecyclerView>
+
         <TextView
             android:id="@+id/International_text"
             style="@style/TextAppearance.AppCompat.Display1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_margin="15dp"
+
             android:fontFamily="@font/luckiest_guy"
             android:paddingLeft="15dp"
             android:text="Feeling international?"
             android:textColor="@android:color/white">
 
         </TextView>
+
         <TextView
             android:id="@+id/details"
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:layout_margin="15dp"
+            android:background="@drawable/recycle_curved"
             android:fontFamily="@font/nothing_you_could_do"
             android:padding="15dp"
             android:text="Tired of your regional cuisine and want to venture into the vast options provided by the world? \n Dig in!"
-            android:background="@drawable/recycle_curved"
             android:textColor="@android:color/white">
 
         </TextView>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/AreaRecycler"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/AreaRecycler">
+            android:layout_margin="15dp"
+
+            android:layout_height="wrap_content">
 
         </androidx.recyclerview.widget.RecyclerView>
-
 
 
     </LinearLayout>

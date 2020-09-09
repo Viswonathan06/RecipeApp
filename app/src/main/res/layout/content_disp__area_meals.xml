@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ffofoo"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".AreaWise.Disp_AreaMeals"
     tools:showIn="@layout/activity_disp__area_meals">
@@ -12,11 +13,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
         <TextView
-            android:layout_width="wrap_content"
             android:id="@+id/warning"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:text="" />
@@ -24,8 +25,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
 
             <ImageView
@@ -47,11 +47,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_margin="15dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/luckiest_guy"
                 android:padding="15dp"
                 android:text="Sea FOOD"
-                android:textColor="#2B292B" />
+                android:textAlignment="center"
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
 
@@ -61,21 +63,24 @@
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/recycle_curved"
             android:fontFamily="@font/nothing_you_could_do"
             android:padding="15dp"
             android:text=""
-            android:textColor="#323030">
+            android:textColor="@android:color/white"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:gravity="center_horizontal">
 
         </TextView>
-
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/RecyclerViewArea1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="15dp"
-            >
+            android:padding="15dp">
 
         </androidx.recyclerview.widget.RecyclerView>
 
