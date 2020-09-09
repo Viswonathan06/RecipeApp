@@ -12,9 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".AreaWise.Disp_AreaMeals"
+            android:label="@string/title_activity_disp__area_meals"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ui.home.TempName"
+            android:label="@string/title_activity_temp_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".ui.home.Recipe"
             android:label="@string/title_activity_recipe"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.home.CategoryFoodList" />
         <activity
             android:name=".MainActivity"

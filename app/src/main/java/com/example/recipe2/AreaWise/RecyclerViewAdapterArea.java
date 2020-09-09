@@ -1,4 +1,4 @@
-package com.example.recipe2.Category_result;
+package com.example.recipe2.AreaWise;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,79 +13,61 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.RequestOptions;
+import com.example.recipe2.Category_result.RecycleViewAdapterMeals;
 import com.example.recipe2.R;
-import com.example.recipe2.Recipe.Meals_Recipe;
-import com.example.recipe2.Recipe.Recipe_Root;
 import com.example.recipe2.Retrofit.JsonPlaceHolderApi;
-import com.example.recipe2.ui.home.Recipe;
 
 import java.util.ArrayList;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RecycleViewAdapterMeals extends RecyclerView.Adapter<RecycleViewAdapterMeals.ViewHolder> {
+public class RecyclerViewAdapterArea extends RecyclerView.Adapter<RecyclerViewAdapterArea.ViewHolder>{
     private static final String TAG = "RecycleViewAdapter";
-    private ArrayList<String> nTitles = new ArrayList<>();
+    private ArrayList<String> nCountry = new ArrayList<>();
     private ArrayList<String> nThumbnails = new ArrayList<>();
     Context context;
     JsonPlaceHolderApi jsonPlaceHolderApi;
 
-    public RecycleViewAdapterMeals( Context context, ArrayList<String> nTitles, ArrayList<String> nThumbnails) {
-        this.nTitles = nTitles;
+    public RecyclerViewAdapterArea(Context context, ArrayList<String> nTitles, ArrayList<String> nThumbnails) {
+        this.nCountry = nTitles;
         this.nThumbnails = nThumbnails;
         this.context = context;
     }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.foodlist,parent,false);
-        ViewHolder holder=new ViewHolder(view);
+        RecyclerViewAdapterArea.ViewHolder holder=new RecyclerViewAdapterArea.ViewHolder(view);
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: ");
-        holder.title.setText(nTitles.get(position));
-        Glide.with(context)
-                .load(nThumbnails.get(position))
-                .apply(new RequestOptions().override(400,400))
-                .apply(new RequestOptions().circleCrop())
-                .apply(new RequestOptions()
-                        .diskCacheStrategy(DiskCacheStrategy.ALL))
-                .into(holder.imageView);
-
-
+        holder.title.setText(nCountry.get(position));
+        //SET FLAGS TO THE IMAGEVIEW
         holder.parentlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(context, Recipe.class);
-                intent.putExtra("Recipe name",nTitles.get(position));
-                intent.putExtra("Recipe thumbnail",nThumbnails.get(position));
+                Intent intent=new Intent(context,Disp_AreaMeals.class);
+                intent.putExtra("Country",nCountry.get(position));
                 context.startActivity(intent);
 
             }
         });
-
-
     }
 
     @Override
     public int getItemCount() {
-        return nTitles.size();    }
+        return nCountry.size();
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView title;
         ImageView imageView;
         LinearLayout parentlayout;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             title=itemView.findViewById(R.id.Title);
@@ -93,8 +75,4 @@ public class RecycleViewAdapterMeals extends RecyclerView.Adapter<RecycleViewAda
             imageView=itemView.findViewById(R.id.imageView);
         }
     }
-
 }
-
-
-

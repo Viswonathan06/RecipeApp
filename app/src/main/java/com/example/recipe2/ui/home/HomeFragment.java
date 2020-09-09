@@ -1,5 +1,6 @@
 package com.example.recipe2.ui.home;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -8,11 +9,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,9 +27,13 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.recipe2.AreaWise.AreaMeals;
+import com.example.recipe2.AreaWise.AreaRoot;
+import com.example.recipe2.AreaWise.RecyclerViewAdapterArea;
 import com.example.recipe2.Categories.Categories;
 import com.example.recipe2.Categories.RecycleViewAdapter;
 import com.example.recipe2.Categories.Root;
+import com.example.recipe2.Category_result.Meals_Root;
 import com.example.recipe2.MainActivity;
 import com.example.recipe2.R;
 import com.example.recipe2.Recipe.Recipe_Root;
@@ -32,6 +41,7 @@ import com.example.recipe2.Retrofit.JsonPlaceHolderApi;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,13 +58,17 @@ public class HomeFragment extends Fragment {
     EditText Searchbox;
     ImageButton search, sadIce;
     TextView error, text;
-    RecyclerView recyclerView;
+    RecyclerView recyclerView,AreaRecycler;
     ProgressBar loading;
+    ListView listView;
 
     //initializing variables
     ArrayList<String> mCategory = new ArrayList<>();
     ArrayList<String> mDetails = new ArrayList<>();
     ArrayList<String> mThumbnail = new ArrayList<>();
+    ArrayList<String> mAreaThumbnails=new ArrayList<>();
+    ArrayList<String> mAreaMeals = new ArrayList<>();
+
 
     private void initRecyclerView() {
         Log.d("initRecyclerView", "Recycler VIew Init'd");
@@ -78,6 +92,7 @@ public class HomeFragment extends Fragment {
         text = root.findViewById(R.id.category_text);
         error = root.findViewById(R.id.error);
         recyclerView = root.findViewById(R.id.RecyclerView);
+        AreaRecycler=root.findViewById(R.id.AreaRecycler);
         loading=root.findViewById(R.id.loading);
 
         error.setVisibility(View.GONE);
@@ -193,15 +208,53 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        Call<AreaRoot> meals_rootCall=jsonPlaceHolderApi.getMeals("list");
+        meals_rootCall.enqueue(new Callback<AreaRoot>() {
             @Override
-            public void onChanged(@Nullable String s) {
-                // textView.setText(s);
+            public void onResponse(Call<AreaRoot> call, Response<AreaRoot> response) {
+                if (!response.isSuccessful()) {
+                    recyclerView.setVisibility(View.GONE);
+                    text.setVisibility(View.GONE);
+                    sadIce.setVisibility(View.VISIBLE);
+                    error.setVisibility(View.VISIBLE);
+
+                    error.setText("Code :" + response.code());
+                    return;
+                } else {
+                    AreaRoot root=response.body();
+                    List<AreaMeals> area_meals=root.getMeals();
+                    for(AreaMeals meals:area_meals){
+                        mAreaMeals.add(meals.getStrArea());
+                    }
+                    RecyclerViewAdapterArea recyclerViewAdapterArea=new RecyclerViewAdapterArea(getContext(),mAreaMeals,mAreaThumbnails);
+                    AreaRecycler.setAdapter(recyclerViewAdapterArea);
+                    RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+                    AreaRecycler.setLayoutManager(mLayoutManager);
+                    Toast.makeText(getContext(), "Recycler view init", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+
+            @Override
+            public void onFailure(Call<AreaRoot> call, Throwable t) {
+                recyclerView.setVisibility(View.GONE);
+                text.setVisibility(View.GONE);
+                sadIce.setVisibility(View.VISIBLE);
+                error.setVisibility(View.VISIBLE);
+                error.setText(t.getMessage());
             }
         });
 
+
+                homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+                    @Override
+                    public void onChanged(@Nullable String s) {
+                        // textView.setText(s);
+                    }
+                });
+
         return root;
     }
+
 }
 

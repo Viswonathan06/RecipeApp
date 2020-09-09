@@ -20,7 +20,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.recipe2.Categories.RecycleViewAdapter;
 import com.example.recipe2.Category_result.RecycleViewAdapterMeals;
 import com.example.recipe2.R;
-import com.example.recipe2.Recipe.RecyclerViewAdapterFavourites;
 import com.example.recipe2.SQLite.DataBaseHelper;
 import com.example.recipe2.SQLite.FavouriteModel;
 import com.example.recipe2.SQLite.RecyclerViewAdapterFavs;
