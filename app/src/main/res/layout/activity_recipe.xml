@@ -20,10 +20,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="@drawable/fall_autumn_wallpaper"
+            app:contentScrim="@drawable/brown_wood"
 
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:statusBarScrim="@drawable/fall_autumn_wallpaper"
+            app:statusBarScrim="@drawable/brown_wood"
             app:toolbarId="@+id/toolbar">
 
 
@@ -34,8 +34,6 @@
                 app:layout_collapseMode="pin"
 
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-
 
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>

@@ -57,10 +57,9 @@ public class HomeFragment extends Fragment {
     JsonPlaceHolderApi jsonPlaceHolderApi;
     EditText Searchbox;
     ImageButton search, sadIce;
-    TextView error, text;
+    TextView error, text,exp1,exp2,int_text;
     RecyclerView recyclerView,AreaRecycler;
-    ProgressBar loading;
-    ListView listView;
+    ProgressBar loading,loading2,loading3;
 
     //initializing variables
     ArrayList<String> mCategory = new ArrayList<>();
@@ -90,10 +89,21 @@ public class HomeFragment extends Fragment {
         search = root.findViewById(R.id.search);
         sadIce = root.findViewById(R.id.sadIce);
         text = root.findViewById(R.id.category_text);
+        int_text = root.findViewById(R.id.International_text);
+        exp1=root.findViewById(R.id.exp1);
+        exp2=root.findViewById(R.id.exp2);
+
+
         error = root.findViewById(R.id.error);
         recyclerView = root.findViewById(R.id.RecyclerView);
         AreaRecycler=root.findViewById(R.id.AreaRecycler);
         loading=root.findViewById(R.id.loading);
+        loading2=root.findViewById(R.id.loading2);
+        loading3=root.findViewById(R.id.loading3);
+
+        loading2.setVisibility(View.VISIBLE);
+        loading3.setVisibility(View.VISIBLE);
+
 
 
         //adding flags to array!
@@ -142,6 +152,9 @@ public class HomeFragment extends Fragment {
                 if (!response.isSuccessful()) {
                     recyclerView.setVisibility(View.GONE);
                     text.setVisibility(View.GONE);
+                    exp1.setVisibility(View.GONE);
+                    exp2.setVisibility(View.GONE);
+                    int_text.setVisibility(View.GONE);
                     sadIce.setVisibility(View.VISIBLE);
                     error.setVisibility(View.VISIBLE);
                     Searchbox.setVisibility(View.GONE);
@@ -166,6 +179,8 @@ public class HomeFragment extends Fragment {
                         mThumbnail.add(category.getStrCategoryThumb());
                         mDetails.add(category.getStrCategoryDescription());
                     }
+                    loading2.setVisibility(View.GONE);
+
                     initRecyclerView();
 
                 }
@@ -255,6 +270,7 @@ public class HomeFragment extends Fragment {
                 } else {
                     AreaRoot root=response.body();
                     List<AreaMeals> area_meals=root.getMeals();
+                    loading3.setVisibility(View.GONE);
                     for(AreaMeals meals:area_meals){
                         mAreaMeals.add(meals.getStrArea());
                     }

@@ -20,7 +20,6 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="@drawable/brown_wood"
-
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:statusBarScrim="@drawable/brown_wood"
             app:toolbarId="@+id/toolbar1">

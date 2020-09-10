@@ -4,6 +4,7 @@ import com.example.recipe2.AreaWise.AreaRoot;
 import com.example.recipe2.Categories.Root;
 import com.example.recipe2.Category_result.Meals;
 import com.example.recipe2.Category_result.Meals_Root;
+import com.example.recipe2.ItemWise.ItemRoot;
 import com.example.recipe2.Recipe.Recipe_Root;
 
 import retrofit2.Call;
@@ -22,14 +23,18 @@ public interface JsonPlaceHolderApi {
 
     @GET("search.php")
     Call<Recipe_Root> getRecipe(@Query("s") String mean_name);
-//?a=list
+
     @GET("list.php")
     Call<AreaRoot> getMeals(@Query("a") String list);
 
     @GET("filter.php")
     Call<Meals_Root> getAreaMeals(@Query("a") String category);
+    //https://www.themealdb.com/api/json/v1/1/list.php?i=list
+    @GET("list.php")
+    Call<ItemRoot> getItemMeals(@Query("i") String list);
 
-
+    @GET("filter.php")
+    Call<Meals_Root> getMeals_item(@Query("i") String item);
 
 }
 

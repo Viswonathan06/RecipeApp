@@ -67,6 +67,7 @@ public class RecycleViewAdapterMeals extends RecyclerView.Adapter<RecycleViewAda
         holder.parentlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent=new Intent(context, Recipe.class);
                 intent.putExtra("Recipe name",nTitles.get(position));
                 intent.putExtra("Recipe thumbnail",nThumbnails.get(position));

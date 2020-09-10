@@ -4,16 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/blackkkk"
     android:orientation="vertical"
     tools:context=".ui.gallery.GalleryFragment">
 
     <TextView
         android:id="@+id/text_gallery"
+        style="@style/TextAppearance.AppCompat.Small"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        style="@style/TextAppearance.AppCompat.Small"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:textAlignment="center" />
 
+
+    <TextView
+        style="@style/TextAppearance.AppCompat.Display2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/luckiest_guy"
+        android:text="Items!">
+
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/faf"
+        android:layout_margin="20dp"
+
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/recycle_curved"
+        android:fontFamily="@font/nothing_you_could_do"
+        android:padding="15dp"
+
+        android:text="Have a specific craving? Have limited stuff in your refridgerator due to lockdown? \n We have organized the meals according to ingredients! \n Your meal is one click away!"
+        android:textColor="@android:color/white">
+
+    </TextView>
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/loading1"
+        android:indeterminate="true">
+
+    </ProgressBar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Recycler_Items"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:layout_height="wrap_content">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

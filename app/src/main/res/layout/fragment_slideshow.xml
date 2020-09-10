@@ -1,45 +1,449 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/lightwall1"
     android:orientation="vertical"
     tools:context=".ui.gallery.GalleryFragment">
 
-    <TextView
-        android:id="@+id/text_slideshow"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        style="@style/TextAppearance.AppCompat.Small"
-        android:gravity="center_horizontal" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Favourites!"
-        android:textAlignment="center"
-        android:fontFamily="@font/luckiest_guy"
-        style="@style/TextAppearance.AppCompat.Display3"
-        android:padding="15dp"
-        android:gravity="center_horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    </TextView>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Find all your favourite meal recipes in one place!"
-        android:fontFamily="@font/rock_salt"
-        style="@style/TextAppearance.AppCompat.Large"
-        android:layout_gravity="center"
-        android:textAlignment="center">
+        <TextView
+            android:id="@+id/text_slideshow"
+            style="@style/TextAppearance.AppCompat.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:gravity="center_horizontal"
 
-    </TextView>
+            android:textAlignment="center" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/favorites_recycle">
+        <TextView
+            style="@style/TextAppearance.AppCompat.Display3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/luckiest_guy"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+            android:padding="15dp"
+            android:text="Favourites!"
+            android:textAlignment="center">
 
-    </androidx.recyclerview.widget.RecyclerView>
-</LinearLayout>
+        </TextView>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+
+            android:background="@drawable/recycle_curved"
+            android:fontFamily="@font/rock_salt"
+            android:text="Find all your favourite meal recipes in one place!"
+            android:textAlignment="center">
+
+        </TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/favorites_recycle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="15dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+
+            android:fontFamily="@font/rock_salt"
+            android:text="Curiosity is the mother of invention!  "
+            android:textAlignment="center">
+
+        </TextView>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:background="@drawable/recycle_curved"
+            android:fontFamily="@font/nothing_you_could_do"
+            android:text="You have found your own recipe during lockdown and want it to be saved to access later? \n We've got your back! "
+            android:textAlignment="center">
+
+        </TextView>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+
+            android:fontFamily="@font/rock_salt"
+            android:text="Give your dish a name!  "
+            android:textAlignment="center">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/recipe_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/recycle_curved"
+            android:hint="Recipe Name">
+
+        </EditText>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+
+            android:fontFamily="@font/rock_salt"
+            android:text="Write your first ingredient!  "
+            android:textAlignment="center">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/ingri1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/recycle_curved"
+            android:hint="Ingridient 1">
+
+        </EditText>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+
+            android:fontFamily="@font/rock_salt"
+            android:text="Write your first ingredient!  "
+            android:textAlignment="center"
+            android:visibility="gone">
+
+        </TextView>
+
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+
+            android:fontFamily="@font/rock_salt"
+            android:text="Write your second ingredient!  "
+            android:textAlignment="center"
+            android:visibility="gone">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/ingri2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/recycle_curved"
+            android:hint="Ingridient 2"
+            android:visibility="gone">
+
+        </EditText>
+
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+
+            android:fontFamily="@font/rock_salt"
+            android:text="Write your third ingredient!  "
+            android:textAlignment="center"
+            android:visibility="gone">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/ingri3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/recycle_curved"
+            android:hint="Ingridient 3"
+            android:visibility="gone">
+
+        </EditText>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+
+            android:fontFamily="@font/rock_salt"
+            android:text="Write your fourth ingredient!  "
+            android:textAlignment="center"
+            android:visibility="gone">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/ingri4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/recycle_curved"
+            android:hint="Ingridient 4"
+            android:visibility="gone">
+
+        </EditText>
+
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+
+            android:fontFamily="@font/rock_salt"
+            android:text="Write your fifth ingredient!  "
+            android:textAlignment="center"
+            android:visibility="gone">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/ingri5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/recycle_curved"
+            android:hint="Ingridient 5"
+            android:visibility="gone">
+
+        </EditText>
+
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+
+            android:fontFamily="@font/rock_salt"
+            android:text="Write your sixth ingredient!  "
+            android:textAlignment="center"
+            android:visibility="gone">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/ingri6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/recycle_curved"
+            android:hint="Ingridient 6"
+            android:visibility="gone">
+
+        </EditText>
+
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+
+            android:fontFamily="@font/rock_salt"
+            android:text="Write your seventh ingredient!  "
+            android:textAlignment="center"
+            android:visibility="gone">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/ingri7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/recycle_curved"
+            android:hint="Ingridient 7"
+            android:visibility="gone">
+
+        </EditText>
+
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+
+            android:fontFamily="@font/rock_salt"
+            android:text="Write your eigth ingredient!  "
+            android:textAlignment="center"
+            android:visibility="gone">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/ingri8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/recycle_curved"
+            android:hint="Ingridient 8"
+            android:visibility="gone">
+
+        </EditText>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                style="@style/TextAppearance.AppCompat.Large"
+                android:fontFamily="@font/nothing_you_could_do"
+                android:text="Add more ingedients?">
+
+            </TextView>
+
+            <ImageButton
+                android:id="@+id/add_more"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:layout_weight="3"
+                android:background="@drawable/recycle_curved"
+                android:src="@android:drawable/ic_input_add">
+
+            </ImageButton>
+        </LinearLayout>
+
+
+        <TextView
+
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+
+            android:fontFamily="@font/rock_salt"
+            android:text="Where is your dish originated?  "
+            android:textAlignment="center">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/recycle_curved"
+            android:hint="Country of Origin?">
+
+        </EditText>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+
+            android:fontFamily="@font/rock_salt"
+            android:text="Categorize your dish.  "
+            android:textAlignment="center">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/recipe_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/recycle_curved"
+            android:hint="Category">
+
+        </EditText>
+
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+
+            android:fontFamily="@font/rock_salt"
+            android:text="Write a few lines on how to make it!  "
+            android:textAlignment="center">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/Procedure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/recycle_curved"
+            android:hint="Procedure">
+
+        </EditText>
+
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+
+            android:background="@drawable/recycle_curved"
+            android:fontFamily="@font/nothing_you_could_do"
+            android:text="You can find your added recipe added to your favourites!"
+            android:textAlignment="center">
+
+        </TextView>
+
+
+    </LinearLayout>
+
+
+</ScrollView>
