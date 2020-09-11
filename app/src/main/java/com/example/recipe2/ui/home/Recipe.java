@@ -1,5 +1,7 @@
 package com.example.recipe2.ui.home;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -18,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -43,7 +46,7 @@ public class Recipe extends AppCompatActivity {
     TextView DrinkAlternate,Area,Category;
     TextView ingri_1,ingri_2,ingri_3,ingri_4,ingri_5,ingri_6,ingri_7,ingri_8,ingri_9,ingri_10,ingri_11,ingri_12,ingri_13,ingri_14,ingri_15,ingri_16,ingri_17,ingri_18,ingri_19,ingri_20;
     String ingridient_1,ingridient_2,ingridient_3,ingridient_4,ingridient_5,ingridient_6,ingridient_7,ingridient_8,ingridient_9,ingridient_10,ingridient_11,ingridient_12,ingridient_13,ingridient_14,ingridient_15,ingridient_16,ingridient_17,ingridient_18,ingridient_19,ingridient_20;
-
+    ImageButton playButton;
     ArrayList<String> nCategory = new ArrayList<>();
     ArrayList<String> nDetails = new ArrayList<>();
     ArrayList<String> nThumbnail = new ArrayList<>();
@@ -78,6 +81,7 @@ public class Recipe extends AppCompatActivity {
         Category=findViewById(R.id.category);
         loading4=findViewById(R.id.loading4);
         LAYOUT=findViewById(R.id.LAYOUT);
+        playButton=findViewById(R.id.playButton);
 
         loading4.setVisibility(View.VISIBLE);
         LAYOUT.setVisibility(View.GONE);
@@ -109,6 +113,19 @@ public class Recipe extends AppCompatActivity {
                                  Description.setText(root.getMeals().get(0).getStrInstructions());
                                  Category.setText(root.getMeals().get(0).getStrCategory());
                                  Area.setText(root.getMeals().get(0).getStrArea());
+
+                                 playButton.setOnClickListener(new View.OnClickListener() {
+                                     @Override
+                                     public void onClick(View v) {
+                                         Intent intent = new  Intent(Intent.ACTION_VIEW);
+
+                                         intent.setPackage("com.google.android.youtube");
+                                         intent.setData(Uri.parse(root.getMeals().get(0).getStrYoutube()));
+
+                                         startActivity(intent);
+                                     }
+                                 });
+
                                  Glide.with(getApplicationContext())
                                          .load(root.getMeals().get(0).getStrMealThumb())
                                          .apply(new RequestOptions().override(700,700))
