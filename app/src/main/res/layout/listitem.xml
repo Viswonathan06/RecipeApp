@@ -38,7 +38,7 @@
 
             <TextView
                 android:id="@+id/Category"
-                style="@style/TextAppearance.AppCompat.Medium"
+                style="@style/TextAppearance.AppCompat.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/rock_salt"

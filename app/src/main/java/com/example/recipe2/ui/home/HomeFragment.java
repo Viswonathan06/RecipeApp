@@ -151,13 +151,13 @@ public class HomeFragment extends Fragment {
             public void onResponse(Call<Root> call, Response<Root> response) {
                 if (!response.isSuccessful()) {
                     recyclerView.setVisibility(View.GONE);
+                    AreaRecycler.setVisibility(View.GONE);
                     text.setVisibility(View.GONE);
                     exp1.setVisibility(View.GONE);
                     exp2.setVisibility(View.GONE);
                     int_text.setVisibility(View.GONE);
                     sadIce.setVisibility(View.VISIBLE);
                     error.setVisibility(View.VISIBLE);
-                    Searchbox.setVisibility(View.GONE);
                     loading.setVisibility(View.VISIBLE);
 
                     error.setText("Code :" + response.code());
@@ -189,10 +189,15 @@ public class HomeFragment extends Fragment {
             @Override
             public void onFailure(Call<Root> call, Throwable t) {
                 recyclerView.setVisibility(View.GONE);
+                AreaRecycler.setVisibility(View.GONE);
                 text.setVisibility(View.GONE);
+                exp1.setVisibility(View.GONE);
+                exp2.setVisibility(View.GONE);
+                int_text.setVisibility(View.GONE);
                 sadIce.setVisibility(View.VISIBLE);
                 error.setVisibility(View.VISIBLE);
                 Searchbox.setVisibility(View.GONE);
+                loading.setVisibility(View.VISIBLE);
 
                 error.setText(t.getMessage());
             }
@@ -226,9 +231,16 @@ public class HomeFragment extends Fragment {
                             Recipe_Root root = response.body();
                             if(root.getMeals()==null){
                                 recyclerView.setVisibility(View.GONE);
+                                AreaRecycler.setVisibility(View.GONE);
                                 text.setVisibility(View.GONE);
+                                exp1.setVisibility(View.GONE);
+                                exp2.setVisibility(View.GONE);
+                                int_text.setVisibility(View.GONE);
                                 sadIce.setVisibility(View.VISIBLE);
                                 error.setVisibility(View.VISIBLE);
+                                Searchbox.setVisibility(View.VISIBLE);
+                                loading.setVisibility(View.VISIBLE);
+
                             }
                             else{
                                 recyclerView.setVisibility(View.VISIBLE);
@@ -278,7 +290,6 @@ public class HomeFragment extends Fragment {
                     AreaRecycler.setAdapter(recyclerViewAdapterArea);
                     RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
                     AreaRecycler.setLayoutManager(mLayoutManager);
-                    Toast.makeText(getContext(), "Recycler view init", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -293,6 +304,23 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        sadIce.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recyclerView.setVisibility(View.VISIBLE);
+                AreaRecycler.setVisibility(View.VISIBLE);
+                text.setVisibility(View.VISIBLE);
+                exp1.setVisibility(View.VISIBLE);
+                exp2.setVisibility(View.VISIBLE);
+                int_text.setVisibility(View.VISIBLE);
+                sadIce.setVisibility(View.GONE);
+                error.setVisibility(View.GONE);
+                Searchbox.setVisibility(View.VISIBLE);
+                loading.setVisibility(View.GONE);
+                Searchbox.setText("");
+            }
+        });
+
 
                 homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
                     @Override
@@ -303,6 +331,8 @@ public class HomeFragment extends Fragment {
 
         return root;
     }
+
+
 
 }
 

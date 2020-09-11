@@ -66,7 +66,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         holder.Category.setText((mCategory.get(position)));
         Glide.with(mContext)
                 .load(mThumbnail.get(position))
-                .apply(new RequestOptions().override(500,500))
+                .apply(new RequestOptions().override(300,300))
                 .apply(new RequestOptions()
                         .diskCacheStrategy(DiskCacheStrategy.ALL))
                 .into(holder.imageView);

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/brown_wood"
+    android:gravity="center"
+    tools:context=".ui.SplashScreen.splashScreen">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:id="@+id/splashImage"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="40dp"
+        app:srcCompat="@drawable/food_app_icon_12">
+
+    </ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Amuse Bouche"
+        android:id="@+id/splashText"
+
+        android:fontFamily="@font/luckiest_guy"
+        style="@style/TextAppearance.AppCompat.Display3"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:textColor="@android:color/white"
+        android:textAlignment="center">
+
+    </TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/splashTExt2"
+
+        android:text="The perfect lock-down recipe app!"
+        android:fontFamily="@font/rock_salt"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_margin="15dp"
+        android:layout_gravity="center"
+        android:textColor="@android:color/white"
+        android:textAlignment="center">
+
+    </TextView>
+
+
+</LinearLayout>

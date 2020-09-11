@@ -19,6 +19,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +38,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Recipe extends AppCompatActivity {
     JsonPlaceHolderApi jsonPlaceHolderApi;
     TextView Title;
+    ProgressBar loading4;
+    LinearLayout LAYOUT;
     TextView DrinkAlternate,Area,Category;
     TextView ingri_1,ingri_2,ingri_3,ingri_4,ingri_5,ingri_6,ingri_7,ingri_8,ingri_9,ingri_10,ingri_11,ingri_12,ingri_13,ingri_14,ingri_15,ingri_16,ingri_17,ingri_18,ingri_19,ingri_20;
     String ingridient_1,ingridient_2,ingridient_3,ingridient_4,ingridient_5,ingridient_6,ingridient_7,ingridient_8,ingridient_9,ingridient_10,ingridient_11,ingridient_12,ingridient_13,ingridient_14,ingridient_15,ingridient_16,ingridient_17,ingridient_18,ingridient_19,ingridient_20;
@@ -63,18 +67,7 @@ public class Recipe extends AppCompatActivity {
         getSupportActionBar().setTitle(title);
         DataBaseHelper dataBaseHelper = new DataBaseHelper(this);
         List<FavouriteModel> favs = dataBaseHelper.getRecipes();
-//        for (FavouriteModel fav:favs) {
-//            if (fav.getRecipe_name()==title){
-//                Toast.makeText(this, "This is in favs!", Toast.LENGTH_SHORT).show();
-//                clicked=1;
-//            }
-//            nCategory.add(fav.getRecipe_name());
-//            nThumbnail.add(fav.getRecipe_thumb());
-//        }
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-
-
-
 
 
         Title=findViewById(R.id.recipename);
@@ -83,11 +76,12 @@ public class Recipe extends AppCompatActivity {
         Area=findViewById(R.id.area);
         finished=findViewById(R.id.finished);
         Category=findViewById(R.id.category);
+        loading4=findViewById(R.id.loading4);
+        LAYOUT=findViewById(R.id.LAYOUT);
 
-
-
+        loading4.setVisibility(View.VISIBLE);
+        LAYOUT.setVisibility(View.GONE);
         Title.setText(title);
-
 
         ingri_1=findViewById(R.id.ingri_1);ingri_2=findViewById(R.id.ingri_2);ingri_2=findViewById(R.id.ingri_2);ingri_3=findViewById(R.id.ingri_3);ingri_4=findViewById(R.id.ingri_4);ingri_5=findViewById(R.id.ingri_5);ingri_6=findViewById(R.id.ingri_6);ingri_7=findViewById(R.id.ingri_7);
         ingri_8=findViewById(R.id.ingri_8);ingri_9=findViewById(R.id.ingri_9);ingri_10=findViewById(R.id.ingri_10);ingri_11=findViewById(R.id.ingri_11);ingri_12=findViewById(R.id.ingri_12);ingri_13=findViewById(R.id.ingri_13);ingri_14=findViewById(R.id.ingri_14);ingri_15=findViewById(R.id.ingri_15);
@@ -108,6 +102,9 @@ public class Recipe extends AppCompatActivity {
                             return;
                                }
                              else{
+                                 loading4.setVisibility(View.GONE);
+                                 LAYOUT.setVisibility(View.VISIBLE);
+
                                  Recipe_Root root=response.body();
                                  Description.setText(root.getMeals().get(0).getStrInstructions());
                                  Category.setText(root.getMeals().get(0).getStrCategory());
@@ -185,12 +182,10 @@ public class Recipe extends AppCompatActivity {
                                      @Override
                                      public void onClick(View view) {
                                          if(clicked==1){
-                                             Snackbar.make(view, "removed from favourites", Snackbar.LENGTH_LONG)
+                                             Snackbar.make(view, "Removed from favourites", Snackbar.LENGTH_LONG)
                                                      .setAction("Action", null).show();
                                              fab.setImageDrawable(getResources().getDrawable(R.drawable.heart));
-
                                              boolean removeone=dataBaseHelper.deleteOne(favouriteModelDelete);
-                                             Toast.makeText(Recipe.this, "Removed "+removeone, Toast.LENGTH_SHORT).show();
 
 
                                              clicked=0;
@@ -202,7 +197,6 @@ public class Recipe extends AppCompatActivity {
 
                                              boolean addone = dataBaseHelper.addone(favouriteModel);
 
-                                             Toast.makeText(Recipe.this, "Success"+addone, Toast.LENGTH_SHORT).show();
                                              fab.setImageDrawable(getResources().getDrawable(R.drawable.heart__1_));
                                          }
 

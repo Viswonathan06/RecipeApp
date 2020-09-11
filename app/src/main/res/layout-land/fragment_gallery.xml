@@ -38,7 +38,7 @@
 
         <TextView
             android:id="@+id/faf"
-            android:layout_margin="20dp"
+            android:layout_margin="50dp"
 
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="match_parent"
@@ -63,7 +63,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Recycler_Items"
             android:layout_width="match_parent"
-            android:layout_margin="20dp"
+            android:layout_margin="50dp"
             android:layout_height="wrap_content">
 
         </androidx.recyclerview.widget.RecyclerView>

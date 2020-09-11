@@ -104,4 +104,8 @@
     </string>
     <string name="title_activity_temp_name">TempName</string>
     <string name="title_activity_disp__area_meals">Disp_AreaMeals</string>
+
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
